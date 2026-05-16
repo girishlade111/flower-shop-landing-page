@@ -140,6 +140,150 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Florist",
+  name: "Flower Shop",
+  description:
+    "Premium flower shop offering fresh blooms, custom arrangements, and same-day delivery for every occasion.",
+  url: SITE_URL,
+  logo: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/og-image.png`,
+  email: "girish@ladestack.in",
+  sameAs: [
+    "https://instagram.com/girish_lade_",
+    "https://github.com/girishlade111",
+    "https://ladestack.in",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 19.076,
+    longitude: 72.8777,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
+  },
+  priceRange: "$$",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Flower Collection",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Rose Elegance",
+          description: "Classic red roses arranged with baby's breath and greenery",
+          image: "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=600",
+          offers: {
+            "@type": "Offer",
+            price: "45.00",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Sunflower Delight",
+          description: "Bright and cheerful sunflower bouquet",
+          image: "https://images.unsplash.com/photo-1551731409-43eb3e517a1a?w=600",
+          offers: {
+            "@type": "Offer",
+            price: "38.00",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Tulip Paradise",
+          description: "Colorful tulip arrangement for spring celebrations",
+          image: "https://images.unsplash.com/photo-1524386416438-98b9b2d4b433?w=600",
+          offers: {
+            "@type": "Offer",
+            price: "42.00",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Orchid Luxe",
+          description: "Exotic orchid arrangement for elegant occasions",
+          image: "https://images.unsplash.com/photo-1566907225470-af29ce3074f5?w=600",
+          offers: {
+            "@type": "Offer",
+            price: "55.00",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Lavender Dreams",
+          description: "Fragrant lavender bouquet for relaxation and romance",
+          image: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=600",
+          offers: {
+            "@type": "Offer",
+            price: "35.00",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Product",
+          name: "Lily Bouquet",
+          description: "Stunning lily arrangement for special occasions",
+          image: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600",
+          offers: {
+            "@type": "Offer",
+            price: "48.00",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+        },
+      },
+    ],
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "500",
+    bestRating: "5",
+    worstRating: "1",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -147,7 +291,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href={SITE_URL} />
+        <meta name="theme-color" content="#ec4899" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta httpEquiv="x-ua-compatible" content="IE=edge" />
+      </head>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ErrorReporter />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
