@@ -404,3 +404,5 @@ This project is licensed under the **MIT License**.
 **Built with care by [LadeStack](https://ladestack.in)**
 
 </div>
+
+**Built by Girish Lade** — [LadeStack](https://ladestack.in)
